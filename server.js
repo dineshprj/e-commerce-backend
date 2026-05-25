@@ -9,7 +9,6 @@ import cartRouter from './routes/cartRoute.js'
 import orderRouter from './routes/orderRoute.js'
 
 const app = express()
-
 const port = process.env.PORT || 4000
 
 connectDB()
@@ -19,22 +18,22 @@ app.use(express.json())
 
 app.use(
   cors({
-    origin: [
+    origin:[
       "https://e-commerce-website-sage-kappa.vercel.app",
       "https://e-commerce-admin-lilac-five.vercel.app"
     ]
   })
 )
 
-app.use('/api/user', userRouter)
-app.use('/api/product', productRouter)
-app.use('/api/cart', cartRouter)
-app.use('/api/order', orderRouter)
+app.use('/api/user',userRouter)
+app.use('/api/product',productRouter)
+app.use('/api/cart',cartRouter)
+app.use('/api/order',orderRouter)
 
-app.get('/', (req,res)=>{
+app.get('/',(req,res)=>{
  res.send("API Working")
 })
 
 app.listen(port,()=>{
- console.log("Server started on PORT:",port)
+ console.log("Server Started:",port)
 })
